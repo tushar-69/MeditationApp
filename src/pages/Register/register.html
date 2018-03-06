@@ -1,0 +1,95 @@
+<ion-header style="color: white; background-color: red">
+  <ion-navbar  color = "primary">
+    <ion-title >
+      Meditation
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content  class="bg-image">
+
+ <form  [formGroup] = "registerFormData" (ngSubmit)="SignUp()">
+	<ion-list >
+
+  <ion-item  padding class="bg-image" style="box-shadow: none; background : none; color: white;">
+    <ion-label floating>Enter Your First Name</ion-label>
+    <ion-input type="text" formControlName="firstname"></ion-input>
+  </ion-item>
+  <div class="error-message" padding *ngIf="firstname.errors  && ( isFormSubmitted || firstname.dirty || firstname.touched)" [ngClass] = "'error'"> 
+      <div *ngIf="firstname.errors.required">
+        First Name required.
+      </div>  
+      <div  *ngIf="firstname.errors.pattern">
+        Enter valid First Name.
+      </div> 
+    </div>
+
+
+  <ion-item  padding class="bg-image" style="box-shadow: none; background : none; color: white;">
+    <ion-label floating>Enter Your Last Name</ion-label>
+    <ion-input type="text" formControlName="lastName"></ion-input>
+  </ion-item>
+
+  <div class="error-message" padding *ngIf="lastName.errors  && ( isFormSubmitted || lastName.dirty || lastName.touched)" [ngClass] = "'error'"> 
+      <div *ngIf="lastName.errors.required">
+        Last Name required.
+      </div>  
+      <div  *ngIf="lastName.errors.pattern">
+        Enter valid Last Name.
+      </div> 
+    </div>
+
+   <ion-item  padding class="bg-image" style="box-shadow: none; background : none; color: white;">
+    <ion-label floating>Enter Country</ion-label>
+    <ion-input type="text" formControlName="country"></ion-input>
+  </ion-item>
+  <div class="error-message" padding *ngIf="country.errors  && ( isFormSubmitted || country.dirty || country.touched)" [ngClass] = "'error'"> 
+      <div *ngIf="country.errors.required">
+        Country required.
+      </div>  
+      <div  *ngIf="country.errors.pattern">
+        Enter valid Country Name.
+      </div> 
+    </div>
+
+   <ion-item  padding class="bg-image" style="box-shadow: none; background : none; color: white;">
+    <ion-label floating>Enter EmailId</ion-label>
+    <ion-input type="EmailId" formControlName="emailId"></ion-input>
+  </ion-item>
+  <div class="error-message" padding *ngIf="emailId.errors  && ( isFormSubmitted || emailId.dirty || emailId.touched)" [ngClass] = "'error'"> 
+      <div *ngIf="emailId.errors.required">
+        Email ID required.
+      </div>  
+      <div  *ngIf="emailId.errors.pattern ">
+        Enter valid EmailId.
+      </div> 
+    </div>
+
+   <ion-item padding class="bg-image" style="box-shadow: none; background: none; border-bottom-color: white; color: white;">
+       <ion-label floating>Password</ion-label>
+       <ion-input type="{{type}}" formControlName="password"></ion-input>
+       <button *ngIf="!showPass" ion-button clear color="light" type="button" item-end (click)="showPassword()" style="height:32px;">     
+        <ion-icon name="eye" style="font-size:32px;"></ion-icon>
+      </button>
+      <button *ngIf="showPass" ion-button clear color="light" type="button" item-end (click)="showPassword()" style="height:32px;">  
+        <ion-icon name="eye" style="font-size:32px;"></ion-icon>
+      </button>
+    </ion-item>
+
+  <ion-item  padding class="bg-image" style=" background : none; border-bottom-color: white; color: white;">
+    <ion-label floating>Enter Mobile Number</ion-label>
+    <ion-input type="text" formControlName="mobileNumber"></ion-input>
+  </ion-item>
+  <div class="error-message" padding *ngIf="mobileNumber.errors  && ( isFormSubmitted || mobileNumber.dirty || mobileNumber.touched)" [ngClass] = "'error'">   
+      <div  *ngIf="mobileNumber.errors.pattern ">
+        Enter valid Mobile Number.
+      </div> 
+    </div>
+
+</ion-list>
+<div padding>
+  <button text-center style="text-decoration: underline;  margin-top: 10px; color: white; background-color: #ff1919; border-radius: 20px;" block ion-button type="submit">Sign Up</button>
+</div>
+</form>
+
+</ion-content>

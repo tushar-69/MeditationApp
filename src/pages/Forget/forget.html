@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Meditation APP
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="bg-image">
+
+  <form  [formGroup] = "formforget" (ngSubmit)="FORGET()">
+  <ion-list>
+
+  <ion-item padding class="bg-image" style="box-shadow: none; background : none; color: white;">
+    <ion-label floating>Enter Email Address<span style="color: red">*</span></ion-label>
+    <ion-input type="EmailId" formControlName="emailId"></ion-input>
+  </ion-item>
+  <div class="error-message" padding *ngIf="emailId.errors  && ( isFormSubmitted || emailId.dirty || emailId.touched)" [ngClass] = "'error'"> 
+      <div *ngIf="emailId.errors.required">
+        Email ID required.
+      </div>  
+      <div  *ngIf="emailId.errors.pattern ">
+        Enter valid EmailId.
+      </div> 
+    </div>
+
+</ion-list>
+
+<div padding>
+  <button text-center style="  margin-top: 10px; color: white; background-color: #ff1919; border-radius: 20px;" ion-button type="submit" block >Submit</button>
+
+</div>
+</form>
+
+</ion-content>

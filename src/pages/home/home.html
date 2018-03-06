@@ -1,0 +1,60 @@
+<ion-content padding class="bg-image">
+
+	<ion-grid>
+		<ion-row>
+			<ion-col col-4></ion-col>
+			<ion-col col-4 style = "margin-left:auto; margin-right: auto; display: block;"><img src="../assets/imgs/loginlogo.jpg" style="width: 100%; height: auto; border-radius: 100%"></ion-col>
+			<ion-col col-4></ion-col>
+		</ion-row>
+	</ion-grid>
+    <form  [formGroup] = "formdata" (ngSubmit)="SignIn()">
+  <ion-list>
+
+  <ion-item padding class="bg-image" style="box-shadow: none; background : none; color: white;">
+    <ion-label floating>Username</ion-label>
+            <ion-input type="text"  formControlName="username" ></ion-input>
+
+
+  </ion-item>
+<div class="error-message" padding *ngIf="username.errors  && ( isFormSubmitted || username.dirty || username.touched)" [ngClass] = "'error'"> 
+      <div *ngIf="username.errors.required">
+        User name required.
+      </div>  
+      <div  *ngIf="username.errors.pattern || username.errors.maxLength">
+        Enter valid user name.
+      </div> 
+    </div>
+  
+  <ion-item padding class="bg-image" style="box-shadow: none; background: none; border-bottom-color: white; color: white;">
+    <ion-label floating>Password</ion-label>
+    <ion-input type="{{type}}" formControlName="password"></ion-input>
+     <button *ngIf="!showPass" ion-button clear color="light" type="button" item-end (click)="showPassword()" style="height:32px;">     <ion-icon name="eye" style="font-size:32px;"></ion-icon>
+    </button>
+      <button *ngIf="showPass" ion-button clear color="light" type="button" item-end (click)="showPassword()" style="height:32px;">  <ion-icon name="eye" style="font-size:32px;"></ion-icon></button>
+        </ion-item>
+  <div class="error-message" padding *ngIf="password.errors  && ( isFormSubmitted || password.dirty || password.touched)"> 
+
+   <div *ngIf="password.errors.required">
+        password required.
+      </div>  
+      <div  *ngIf="password.errors.maxLength">
+        Password Length exceed.
+      </div> 
+    </div>
+
+</ion-list>
+
+<div padding>
+  <button text-center style=" margin-top: 10px; color: white; background-color: #ff1919; border-radius: 20px;" ion-button type="submit" block >Sign In</button>
+
+</div>
+
+
+</form>
+
+  <div text-center style="text-decoration: underline;  margin-top: 5px; color: white;" (click)="Forget()">Forget Passowrd</div>
+<div padding>
+<button text-center style="text-decoration: unset;  margin-top: 15px;background-color: #ff1919; color: white; width: 100%; border-radius: 20px;" block ion-button (click)="Register();"> Click Here to SignUp </button>
+
+</div>
+</ion-content>

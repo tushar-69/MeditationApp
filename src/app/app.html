@@ -1,0 +1,26 @@
+  
+<!-- <ion-menu id="ArticleMenu" persistent="true"  [content]="content">
+  <ion-scroll scrollY="true">
+
+  <ion-card class="background-image-card" *ngFor="let article of articleMenuArray; let i = index" (click)="articleMenuChange(i)">
+    <div class="card-image background-image-card__image-wrapper" [innerHTML]="article.post_image"></div>
+
+      <div class="background-image-card__titles">
+
+        <h2 class="card-title background-image-card__title">{{article.post_title}}</h2>
+
+        <h3 class="card-subtitle  background-image-card__subtitle" [innerHTML]="utils.dateFromString(article.post_date)"></h3>
+        
+      </div>
+
+  </ion-card>
+
+  </ion-scroll>
+
+  <ion-content>
+    <ion-list>
+    	<h4>Logout</h4>
+    </ion-list>
+  </ion-content>
+  </ion-menu> -->
+<ion-nav [root]="rootPage"  swipeBackEnabled="false" #content></ion-nav>
